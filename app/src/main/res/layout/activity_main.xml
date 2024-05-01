@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <!--Jennifer Peterson-->
+
+    <!--Row 1-->
+    <Button
+        android:id="@+id/buttonGrid_1"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="48dp"
+        android:text="1"
+        app:layout_constraintEnd_toStartOf="@+id/buttonGrid_2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonGrid_2"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="2"
+        app:layout_constraintEnd_toStartOf="@+id/buttonGrid_3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonGrid_1"
+        app:layout_constraintTop_toTopOf="@+id/buttonGrid_1" />
+
+    <Button
+        android:id="@+id/buttonGrid_3"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="35dp"
+        android:text="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonGrid_2"
+        app:layout_constraintTop_toTopOf="@+id/buttonGrid_2" />
+
+    <!--Row 2-->
+    <Button
+        android:id="@+id/buttonGrid_4"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="40dp"
+        android:text="4"
+        app:layout_constraintEnd_toStartOf="@+id/buttonGrid_5"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGrid_1" />
+
+    <Button
+        android:id="@+id/buttonGrid_5"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="5"
+        app:layout_constraintEnd_toStartOf="@+id/buttonGrid_6"
+        app:layout_constraintStart_toEndOf="@+id/buttonGrid_4"
+        app:layout_constraintTop_toTopOf="@+id/buttonGrid_4" />
+
+    <Button
+        android:id="@+id/buttonGrid_6"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="35dp"
+        android:text="6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonGrid_5"
+        app:layout_constraintTop_toTopOf="@+id/buttonGrid_5" />
+
+    <!--Row 3-->
+    <Button
+        android:id="@+id/buttonGrid_7"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="40dp"
+        android:text="7"
+        app:layout_constraintEnd_toStartOf="@+id/buttonGrid_8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGrid_4" />
+
+    <Button
+        android:id="@+id/buttonGrid_8"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="8"
+        app:layout_constraintEnd_toStartOf="@+id/buttonGrid_9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonGrid_7"
+        app:layout_constraintTop_toTopOf="@+id/buttonGrid_7" />
+
+    <Button
+        android:id="@+id/buttonGrid_9"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="35dp"
+        android:text="9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonGrid_8"
+        app:layout_constraintTop_toTopOf="@+id/buttonGrid_8" />
+
+    <!--Bottom-->
+    <TextView
+        android:id="@+id/textGameInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Game Info Display"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGrid_8" />
+
+    <Button
+        android:id="@+id/buttonNewGame"
+        android:layout_width="337dp"
+        android:layout_height="63dp"
+        android:text="@string/new_game"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textGameInfo"
+        app:layout_constraintVertical_bias="0.312" />
+</androidx.constraintlayout.widget.ConstraintLayout>
