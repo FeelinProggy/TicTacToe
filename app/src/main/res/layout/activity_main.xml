@@ -9,14 +9,15 @@
     <!--Jennifer Peterson-->
 
     <!--Row 1-->
+
     <Button
         android:id="@+id/buttonGrid_1"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="48dp"
-        android:text="1"
+        android:layout_marginTop="80dp"
+        android:text=""
         app:layout_constraintEnd_toStartOf="@+id/buttonGrid_2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -28,7 +29,7 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:text="2"
+        android:text=""
         app:layout_constraintEnd_toStartOf="@+id/buttonGrid_3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonGrid_1"
@@ -40,21 +41,22 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="35dp"
-        android:text="3"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonGrid_2"
         app:layout_constraintTop_toTopOf="@+id/buttonGrid_2" />
 
     <!--Row 2-->
+
     <Button
         android:id="@+id/buttonGrid_4"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="40dp"
-        android:text="4"
+        android:layout_marginTop="20dp"
+        android:text=""
         app:layout_constraintEnd_toStartOf="@+id/buttonGrid_5"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -66,7 +68,7 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:text="5"
+        android:text=""
         app:layout_constraintEnd_toStartOf="@+id/buttonGrid_6"
         app:layout_constraintStart_toEndOf="@+id/buttonGrid_4"
         app:layout_constraintTop_toTopOf="@+id/buttonGrid_4" />
@@ -77,21 +79,22 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="35dp"
-        android:text="6"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonGrid_5"
         app:layout_constraintTop_toTopOf="@+id/buttonGrid_5" />
 
     <!--Row 3-->
+
     <Button
         android:id="@+id/buttonGrid_7"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="40dp"
-        android:text="7"
+        android:layout_marginTop="20dp"
+        android:text=""
         app:layout_constraintEnd_toStartOf="@+id/buttonGrid_8"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -103,7 +106,7 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:text="8"
+        android:text=""
         app:layout_constraintEnd_toStartOf="@+id/buttonGrid_9"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonGrid_7"
@@ -115,7 +118,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="35dp"
-        android:text="9"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonGrid_8"
@@ -127,7 +130,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="Game Info Display"
+        android:text="@string/player_x_s_turn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid_8" />
