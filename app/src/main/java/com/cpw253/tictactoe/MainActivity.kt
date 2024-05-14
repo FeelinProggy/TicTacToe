@@ -1,6 +1,7 @@
 package com.cpw253.tictactoe
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -12,6 +13,8 @@ class MainActivity : AppCompatActivity() {
     // Establishing empty variables to be used in functions
     private var currentPlayer = ""
     private var gameInfo: TextView? = null // Null until setContentView
+    private lateinit var allGridButtons: Array<Button>
+    private lateinit var winningCombos: Array<Array<Button>>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,36 +30,40 @@ class MainActivity : AppCompatActivity() {
         switchPlayer()
 
         // Creating local values for all buttons
-        val buttonGrid1 = findViewById<Button>(R.id.buttonGrid_1)
-        buttonGrid1.setOnClickListener { markXO(buttonGrid1) }
-        val buttonGrid2 = findViewById<Button>(R.id.buttonGrid_2)
-        buttonGrid2.setOnClickListener { markXO(buttonGrid2) }
-        val buttonGrid3 = findViewById<Button>(R.id.buttonGrid_3)
-        buttonGrid3.setOnClickListener { markXO(buttonGrid3) }
-        val buttonGrid4 = findViewById<Button>(R.id.buttonGrid_4)
-        buttonGrid4.setOnClickListener { markXO(buttonGrid4) }
-        val buttonGrid5 = findViewById<Button>(R.id.buttonGrid_5)
-        buttonGrid5.setOnClickListener { markXO(buttonGrid5) }
-        val buttonGrid6 = findViewById<Button>(R.id.buttonGrid_6)
-        buttonGrid6.setOnClickListener { markXO(buttonGrid6) }
-        val buttonGrid7 = findViewById<Button>(R.id.buttonGrid_7)
-        buttonGrid7.setOnClickListener { markXO(buttonGrid7) }
-        val buttonGrid8 = findViewById<Button>(R.id.buttonGrid_8)
-        buttonGrid8.setOnClickListener { markXO(buttonGrid8) }
-        val buttonGrid9 = findViewById<Button>(R.id.buttonGrid_9)
-        buttonGrid9.setOnClickListener { markXO(buttonGrid9) }
-        // Creating List of all buttons
-        val gridButtons: List<Button> = listOf(buttonGrid1, buttonGrid2, buttonGrid3,
-            buttonGrid4, buttonGrid5, buttonGrid6, buttonGrid7, buttonGrid8, buttonGrid9)
-
-        val newGame = findViewById<Button>(R.id.buttonNewGame)
-        newGame.setOnClickListener { startNewGame(gridButtons) }
+        val btn1 = findViewById<Button>(R.id.buttonGrid_1)
+        val bth2 = findViewById<Button>(R.id.buttonGrid_2)
+        val btn3 = findViewById<Button>(R.id.buttonGrid_3)
+        val btn4 = findViewById<Button>(R.id.buttonGrid_4)
+        val btn5 = findViewById<Button>(R.id.buttonGrid_5)
+        val btn6 = findViewById<Button>(R.id.buttonGrid_6)
+        val btn7 = findViewById<Button>(R.id.buttonGrid_7)
+        val btn8 = findViewById<Button>(R.id.buttonGrid_8)
+        val btn9 = findViewById<Button>(R.id.buttonGrid_9)
+        // Creating Array of all buttons
+        allGridButtons = arrayOf(btn1, bth2, btn3, btn4, btn5, btn6, btn7, btn8, btn9)
+        // Arrays to check for win
+        val row1: Array<Button> = arrayOf(btn1, bth2, btn3)
+        val row2: Array<Button> = arrayOf(btn4, btn5, btn6)
+        val row3: Array<Button> = arrayOf(btn7, btn8, btn9)
+        val col1: Array<Button> = arrayOf(btn1, btn4, btn7)
+        val col2: Array<Button> = arrayOf(bth2, btn5, btn8)
+        val col3: Array<Button> = arrayOf(btn3, btn6, btn9)
+        val diagLeft: Array<Button> = arrayOf(btn1, btn5, btn9)
+        val diagRight: Array<Button> = arrayOf(btn3, btn5, btn7)
+        // Array for all possible wins
+        winningCombos = arrayOf(row1, row2, row3, col1, col2, col3, diagLeft, diagRight)
     }
 
     // Place player's mark and call to switch
-    private fun markXO(button: Button) {
+    fun markXO(view: View) {
+        val button = view as Button
         if (button.text.isNullOrEmpty()) {
             button.text = currentPlayer
+        }
+        if (checkWin(button)){
+            gameInfo!!.text = getString(R.string.player_wins, currentPlayer)
+        }
+        else {
             switchPlayer()
         }
     }
@@ -68,11 +75,30 @@ class MainActivity : AppCompatActivity() {
         gameInfo!!.text = getString(R.string.player_s_turn, currentPlayer)
     }
 
+    private fun checkWin(selected: Button) : Boolean {
+        for (line in winningCombos) {
+            if (line.contains(selected)) {
+                var threeInARow = true
+                for (button in line) {
+                    if (button.text.isNullOrEmpty()) threeInARow = false
+                    else if (button.text !== currentPlayer) threeInARow = false
+                }
+                if (threeInARow) return true
+            }
+        }
+        return false
+    }
+
+    // onClick sends to function
     // New game resets all grid button text and currentPlayer
     // switchPlayer sets up to start game with X again
-    private fun startNewGame(gridButtons: List<Button>) {
+    fun startNewGame(view: View) {
+        startNewGame(allGridButtons)
+    }
+    private fun startNewGame(gridButtons: Array<Button>) {
         for (i in gridButtons) i.text = ""
         currentPlayer = ""
         switchPlayer()
     }
+
 }
