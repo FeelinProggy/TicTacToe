@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity : AppCompatActivity() {
     // Establishing empty variables to be used in functions
     private var currentPlayer = ""
-    private var gameInfo: TextView? = null // Null until setContentView
+    private lateinit var gameInfo: TextView
     private lateinit var allGridButtons: Array<Button>
     private lateinit var winningCombos: Array<Array<Button>>
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,14 +57,18 @@ class MainActivity : AppCompatActivity() {
     // Place player's mark and call to switch
     fun markXO(view: View) {
         val button = view as Button
-        if (button.text.isNullOrEmpty()) {
+        // prevents turn from toggling if button is already marked
+        if (button.text == currentPlayer)
+        // if button is empty, mark it
+        else if (button.text.isNullOrEmpty()) {
             button.text = currentPlayer
-        }
-        if (checkWin(button)){
-            gameInfo!!.text = getString(R.string.player_wins, currentPlayer)
-        }
-        else {
-            switchPlayer()
+            // Check for win, if false switch player
+            if (checkWin(button)){
+                gameInfo.text = getString(R.string.player_wins, currentPlayer)
+            }
+            else {
+                switchPlayer()
+            }
         }
     }
 
@@ -72,7 +76,7 @@ class MainActivity : AppCompatActivity() {
     private fun switchPlayer() {
         currentPlayer = if (currentPlayer == "X") "O" else "X"
 
-        gameInfo!!.text = getString(R.string.player_s_turn, currentPlayer)
+        gameInfo.text = getString(R.string.player_s_turn, currentPlayer)
     }
 
     private fun checkWin(selected: Button) : Boolean {
@@ -83,20 +87,28 @@ class MainActivity : AppCompatActivity() {
                     if (button.text.isNullOrEmpty()) threeInARow = false
                     else if (button.text !== currentPlayer) threeInARow = false
                 }
-                if (threeInARow) return true
+                if (threeInARow) {
+                    for (i in allGridButtons) {
+                        i.isEnabled = false
+                    }
+                    return true
+                }
             }
         }
         return false
     }
 
     // onClick sends to function
-    // New game resets all grid button text and currentPlayer
-    // switchPlayer sets up to start game with X again
     fun startNewGame(view: View) {
         startNewGame(allGridButtons)
     }
+    // New game resets all grid buttons and currentPlayer
+    // SwitchPlayer sets up to start game with X again
     private fun startNewGame(gridButtons: Array<Button>) {
-        for (i in gridButtons) i.text = ""
+        for (i in gridButtons) {
+            i.text = ""
+            i.isEnabled = true
+        }
         currentPlayer = ""
         switchPlayer()
     }
